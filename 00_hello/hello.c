@@ -14,7 +14,7 @@ static int __init hello_module(void)
 
 static void __exit goodbye_module(void)
 {
-	printk(KERN_INFO "adios\n");
+	printk(KERN_INFO "Adios\n");
 }
 
 /* Registra quais funções devem ser chamadas para cada "evento"  */
