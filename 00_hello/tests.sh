@@ -10,7 +10,15 @@ if [ $(id -un) != "root" ]; then
    exit 1
 fi
 
+#list module information
+echo -e "lista as informações do modulo\n"
+echo -e "$ modinfo hello.ko\n"
+modinfo hello.ko
+echo -e "\n"
+read -p "Continuar ... "
+echo -e "----------------------------------------------"
 #install the module
+
 echo -e "instala o modulo\n"
 echo -e "# insmod hello.ko\n"
 insmod hello.ko
