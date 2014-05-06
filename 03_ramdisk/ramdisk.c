@@ -100,4 +100,4 @@ module_exit(goodbye_module);
 /* Informações sobre o módulo  */
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Diego Ruggeri");
-MODULE_DESCRIPTION("Char device module");
+MODULE_DESCRIPTION("RAMDisk device module");
