@@ -21,7 +21,6 @@ static struct file_operations fops = {
 static ssize_t device_read(struct file *filp, char *buffer, size_t length,loff_t * offset)
 {
 	int len;
-	printk(KERN_INFO "read");
 	/*
 	 * Se a mensagem já tiver sido copiada para o buffer,
 	 * retorna 0 para indica EOF (fim do "arquivo")
@@ -46,13 +45,15 @@ static ssize_t device_read(struct file *filp, char *buffer, size_t length,loff_t
 
 static ssize_t device_write(struct file *filp, const char *buff, size_t len, loff_t * off)
 {
-	printk(KERN_INFO "write");
-	return 0;
+	/* Reinicia para a mensagem original */
+	strncpy(message, FISL_MESSAGE, BUFF_LEN);
+	printk(KERN_INFO "Mensagem escrita");
+	return len;
 }
 
 static int device_open(struct inode *inode, struct file *file)
 {
-	printk(KERN_INFO "open");
+	printk(KERN_INFO "Arquivo aberto");
 	/* Cada vez que o "arquivo" é aberto, inclui uma exclamação */
 	copied = 0; 
 	sprintf(message, "%s%s", message, "!");
@@ -61,7 +62,7 @@ static int device_open(struct inode *inode, struct file *file)
 
 static int device_release(struct inode *inode, struct file *file)
 {
-	printk(KERN_INFO "release");
+	printk(KERN_INFO "arquivo liberado");
 	return 0;
 }
 

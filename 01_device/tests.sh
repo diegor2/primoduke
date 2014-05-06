@@ -41,6 +41,60 @@ echo -e "\n"
 read -p "Continuar ... "
 echo -e "----------------------------------------------"
 
+# create node on /dev 
+echo -e "cria nó de dispositivo em /dev/fisl15"
+# lê o dmes, procura a mensagem de registro, 
+# pega apenas a ultima, corta somente o numero
+MAJOR=$(dmesg | grep "registrado com major=" \
+              | tail -n 1 | cut -d= -f2) 
+
+if [[ $(find /dev -name fisl15) == "" ]]; then
+	echo -e "mknod /dev/fisl15 c" $MAJOR 0 "\n"
+	mknod /dev/fisl15 c $MAJOR 0
+else
+	echo -e "/dev/fisl15 já existe\n"
+fi;
+echo -e "ls -l /dev/fisl15 --color=auto\n"
+ls -l /dev/fisl15 --color=auto
+echo -e "\n"
+read -p "Continuar ... "
+echo -e "----------------------------------------------"
+
+# read from /dev/fisl15 
+echo -e "lê 5x a partir de /dev/fisl15\n"
+echo "for i in {1..5}; do cat /dev/fisl15; echo -e \"\\n\"; done;"
+echo -e "\n"
+for i in {1..5}; do
+	cat /dev/fisl15
+	echo -e "\n"
+done;
+echo -e "\n"
+read -p "Continuar ... "
+echo -e "----------------------------------------------"
+
+# write once and read again from /dev/fisl15 
+echo -e "escreve uma vez e lê de novo 5x a partir de /dev/fisl15\n"
+echo -e "echo \"ubuntu\" > /dev/fisl15\n"
+echo "ubuntu" > /dev/fisl15
+
+echo "for i in {1..5}; do cat /dev/fisl15; echo -e \"\\n\"; done;"
+echo -e "\n"
+for i in {1..5}; do
+	cat /dev/fisl15
+	echo -e "\n"
+done;
+echo -e "\n"
+read -p "Continuar ... "
+echo -e "----------------------------------------------"
+
+# message on dmesg
+echo -e "mensagem no dmesg (display messages)\n"
+echo -e "$ dmesg | tail -n 50\n"
+dmesg | tail -n 50
+echo -e "\n"
+read -p "Continuar ... "
+echo -e "----------------------------------------------"
+
 #remove the module 
 echo -e "remove o module\n"
 echo -e "# rmmod device.ko\n"
