@@ -12,16 +12,16 @@ fi
 
 #list module information
 echo -e "lista as informações do modulo\n"
-echo -e "$ modinfo misc.ko\n"
-modinfo misc.ko
+echo -e "$ modinfo ramdisk.ko\n"
+modinfo ramdisk.ko
 echo -e "\n"
 read -p "Continuar ... "
 echo -e "----------------------------------------------"
 #install the module
 
 echo -e "instala o modulo\n"
-echo -e "# insmod misc.ko\n"
-insmod misc.ko
+echo -e "# insmod ramdisk.ko\n"
+insmod ramdisk.ko
 read -p "Continuar ... "
 echo -e "----------------------------------------------"
 
@@ -42,37 +42,37 @@ read -p "Continuar ... "
 echo -e "----------------------------------------------"
 
 # check if there is the node on /dev 
-echo -e "Valida se o nó de dispositivo em /dev/fisl15m existe"
-if [[ $(find /dev -name fisl15m) != "" ]]; then
-	echo -e "/dev/fisl15m foi criado pelo udev\n"
+echo -e "Valida se o nó de dispositivo em /dev/fisl15rd existe"
+if [[ $(find /dev -name fisl15rd) != "" ]]; then
+	echo -e "/dev/fisl15rd foi criado pelo udev\n"
 fi;
-echo -e "$ ls -l /dev/fisl15m --color=auto\n"
-ls -l /dev/fisl15m --color=auto
+echo -e "$ ls -l /dev/fisl15rd --color=auto\n"
+ls -l /dev/fisl15rd --color=auto
 echo -e "\n"
 read -p "Continuar ... "
 echo -e "----------------------------------------------"
 
-# read from /dev/fisl15m 
-echo -e "lê 5x a partir de /dev/fisl15m\n"
-echo "# for i in {1..5}; do cat /dev/fisl15m; echo -e \"\\n\"; done;"
+# read from /dev/fisl15rd 
+echo -e "lê 5x a partir de /dev/fisl15rd\n"
+echo "# for i in {1..5}; do cat /dev/fisl15rd; echo -e \"\\n\"; done;"
 echo -e "\n"
 for i in {1..5}; do
-	cat /dev/fisl15m
+	cat /dev/fisl15rd
 	echo -e "\n"
 done;
 echo -e "\n"
 read -p "Continuar ... "
 echo -e "----------------------------------------------"
 
-# write once and read again from /dev/fisl15m 
-echo -e "escreve uma vez e lê de novo 5x a partir de /dev/fisl15m\n"
-echo -e "# echo \"ubuntu\" > /dev/fisl15m\n"
-echo "ubuntu" > /dev/fisl15m
+# write once and read again from /dev/fisl15rd 
+echo -e "escreve uma vez e lê de novo 5x a partir de /dev/fisl15rd\n"
+echo -e "# echo \"Vai ter linux!\" > /dev/fisl15rd\n"
+echo "Vai ter linux!" > /dev/fisl15rd
 
-echo "# for i in {1..5}; do cat /dev/fisl15m; echo -e \"\\n\"; done;"
+echo "# for i in {1..5}; do cat /dev/fisl15rd; echo -e \"\\n\"; done;"
 echo -e "\n"
 for i in {1..5}; do
-	cat /dev/fisl15m
+	cat /dev/fisl15rd
 	echo -e "\n"
 done;
 echo -e "\n"
@@ -89,8 +89,8 @@ echo -e "----------------------------------------------"
 
 #remove the module 
 echo -e "remove o module\n"
-echo -e "# rmmod misc.ko\n"
-rmmod misc.ko
+echo -e "# rmmod ramdisk.ko\n"
+rmmod ramdisk.ko
 read -p "Continuar ... "
 echo -e "----------------------------------------------"
 
