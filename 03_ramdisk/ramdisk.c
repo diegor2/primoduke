@@ -16,7 +16,7 @@ static struct file_operations fops = {
 };
 
 static struct miscdevice mdev = {
-        .minor = 0,
+        .minor = MISC_DYNAMIC_MINOR,
         .name = DEVICE,
         .fops = &fops,
 };
@@ -70,18 +70,24 @@ static int device_release(struct inode *inode, struct file *file)
 /* Função que será chamada quando o modulo é instalado */
 static int __init hello_module(void)
 {
-	disk = kmalloc(DISK_SIZE * sizeof(char), GFP_KERNEL);
-	if(misc_register(&mdev) == SUCCESS)
+	int ret;
+	disk = (char*) kmalloc(DISK_SIZE * sizeof(char), GFP_KERNEL);
+	if(!disk){
+		printk(KERN_ALERT "Erro ao alocar memoria"); /* Error */
+		return -ENOMEM;
+	}
+	ret = misc_register(&mdev);
+	if(ret == SUCCESS)
 		printk(KERN_INFO "Dispositivo registrado"); /* OK */
 	else
 		printk(KERN_ALERT "Erro ao registrar dispositivo"); /* Error */
-	return 0;
+	return ret;
 }
 
 /* Função que será chamada quando o modulo é removido  */
 static void __exit goodbye_module(void)
 {
-	kfree(&disk);
+	kfree(disk);
 	misc_deregister(&mdev);
 	printk(KERN_INFO "Dispositivo removido\n");
 

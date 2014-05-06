@@ -16,7 +16,7 @@
 #include <linux/miscdevice.h>
 #include <linux/slab.h>
 
-#define DEVICE "fisl15d"
+#define DEVICE "fisl15rd"
 #define DISK_SIZE 4096
 #define SUCCESS 0
 
