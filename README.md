@@ -3,6 +3,10 @@ Escrevendo seu primeiro modulo de kernel
 ========================================
 (Writing your first kernel module)
 
+Linux permite escrever módulos de maneira bastante simples e elegante, usando técnicas de orientação a objetos mesmo sendo todo escrito em C. Como a criação de módulos e drives costuma ser feita por fabricantes de hardware, muitos programadores não tem familiaridade com esse assunto ainda que tenham curiosidade de aprender. 
+
+Nessa apresentação serão mostrados os fundamentos sobre módulos, as ferramentas usadas para criá-los e alguns exemplos práticos.
+
 Apresentar o básico sobre drivers (diferença entre character, block e ioctl)
 Mostrar o ciclo de vida de um módulo (init, proble, exit, etc..).
 Mostrar dispositivos do /dev e os valores de minor e major que os associam ao driver;
