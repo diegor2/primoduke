@@ -34,3 +34,7 @@ Referencias
 * https://www.kernel.org/doc/htmldocs/kernel-api/
 * http://www.linux.it/~rubini/docs/misc/misc.html
 
+Vídeo
+-----
+https://www.youtube.com/watch?v=QFN8rTQkP_Y
+http://hemingway.softwarelivre.org/fisl15/high/41d/sala41d-high-201405081100.ogv
