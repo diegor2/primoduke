@@ -36,5 +36,7 @@ Referencias
 
 Vídeo
 -----
-https://www.youtube.com/watch?v=QFN8rTQkP_Y
-http://hemingway.softwarelivre.org/fisl15/high/41d/sala41d-high-201405081100.ogv
+
+* https://www.youtube.com/watch?v=QFN8rTQkP_Y
+
+* http://hemingway.softwarelivre.org/fisl15/high/41d/sala41d-high-201405081100.ogv
