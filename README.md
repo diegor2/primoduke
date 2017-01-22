@@ -3,7 +3,9 @@ Escrevendo seu primeiro modulo de kernel
 ========================================
 (Writing your first kernel module)
 
-Linux permite escrever módulos de maneira bastante simples e elegante, usando técnicas de orientação a objetos mesmo sendo todo escrito em C. Como a criação de módulos e drives costuma ser feita por fabricantes de hardware, muitos programadores não tem familiaridade com esse assunto ainda que tenham curiosidade de aprender. 
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/QFN8rTQkP_Y/0.jpg)](http://www.youtube.com/watch?v=QFN8rTQkP_Y "Escrevendo seu primeiro módulo de kernel ")
+
+Linux permite escrever módulos de maneira bastante simples e elegante, usando técnicas de orientação a objetos mesmo sendo todo escrito em C. Como a criação de módulos e drives costuma ser feita por fabricantes de hardware, muitos programadores não tem familiaridade com esse assunto ainda que tenham curiosidade de aprender.
 
 Nessa apresentação serão mostrados os fundamentos sobre módulos, as ferramentas usadas para criá-los e alguns exemplos práticos.
 
